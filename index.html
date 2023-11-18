@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle de Pascal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Triangle de Pascal</h1>
+    </header>
+    <div class="container">
+        <p class="explanation">
+            Le Triangle de Pascal est une figure mathématique qui permet de générer les coefficients binomiaux. Entrez le nombre de lignes souhaité ci-dessous pour le voir en action :
+        </p>
+        <label for="rowCount">Nombre de lignes : </label>
+        <input type="number" id="rowCount" min="1" placeholder="Entrez le nombre de lignes">
+        <button onclick="drawPascalTriangle()">Dessiner</button>
+        <div id="pascalTriangle" class="pascal-triangle"></div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Triangle de Pascal de TCHAMASSE Warapisse</p>
+    </footer>
+    <script src="script1.js"></script>
+</body>
+</html>
