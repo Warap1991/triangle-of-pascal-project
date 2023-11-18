@@ -1,21 +1,25 @@
-function addTask() {
-    const taskInput = document.getElementById("task");
-    const taskText = taskInput.value.trim();
-    if (taskText === "") return;
+function drawPascalTriangle() {
+    const rowCount = parseInt(document.getElementById("rowCount").value);
+    const pascalTriangle = document.getElementById("pascalTriangle");
+    pascalTriangle.innerHTML = "";
 
-    const taskList = document.getElementById("task-list");
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `
-        <span>${taskText}</span>
-        <button onclick="removeTask(this)">Delete</button>
-    `;
-    taskList.appendChild(listItem);
+    for (let i = 0; i < rowCount; i++) {
+        const row = document.createElement("div");
+        row.className = "pascal-row";
 
-    taskInput.value = "";
+        for (let j = 0; j <= i; j++) {
+            const coefficient = binomialCoefficient(i, j);
+            const cell = document.createElement("span");
+            cell.className = "pascal-cell";
+            cell.textContent = coefficient;
+            row.appendChild(cell);
+        }
+
+        pascalTriangle.appendChild(row);
+    }
 }
 
-function removeTask(button) {
-    const listItem = button.parentElement;
-    const taskList = document.getElementById("task-list");
-    taskList.removeChild(listItem);
+function binomialCoefficient(n, k) {
+    if (k === 0 || k === n) return 1;
+    return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
 }
